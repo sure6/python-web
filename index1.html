@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function getAjax() {
+            var user = document.getElementById('user').value
+            jsonStr={'user':user}
+            $.ajax({
+                type: "GET",
+                // dataType: 'json',
+                contentType: "application/text",
+                data: jsonStr,
+                url: '/test',
+                success: function (data) {
+                    alert("发送成功");
+                },
+                error: function (e) {
+                    alert("发送失败");
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<input type="text" name="user" id="user">
+<input type="submit" onclick="getAjax()">
+
+</body>
+</html>
